@@ -1,0 +1,49 @@
+<html>
+<title> Signup </title>
+<link rel = "stylesheet" href = "{{ url_for('static',filename='styles/styles.css') }}">
+
+<body>
+<form method="POST">
+    {{ form.hidden_tag() }}
+
+    <div class = "login-box">
+        <h1>Sign Up</h1>
+        <div class = "textbox">
+            {% if form.username.errors %}
+					{{ form.username(placeholder = 'Username') }}
+					<div class = "invalid-feedback">
+						{% for error in form.username.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+						{{ form.username(placeholder = 'Username') }}
+				{% endif %}
+        </div>
+        <div class = "textbox">
+            {{ form.standard }}
+        </div>
+        <div class = "textbox">
+            {{ form.section }}
+        </div>
+        <div class = "textbox">
+            {{ form.password(placeholder = 'Set Password') }}
+        </div>
+        <div class = "textbox">
+            {% if form.confirmpass.errors %}
+                    {{ form.confirmpass(placeholder = 'Re-enter Password') }}
+                    <br>
+					<div class = "invalid-feedback">
+						{% for error in form.confirmpass.errors %}
+							<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+						{{ form.confirmpass(placeholder = 'Re-Enter Password') }}
+				{% endif %}
+        </div>
+        {{ form.submit(value = 'Sign Up', class = 'btn') }}
+    </div>
+</form> 
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% extends 'layout.html' %} {% block content %}
+
+<div class='notes-class'>
+    <ul class='notes-list'>
+        <form method='POST' enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <select id="class" name="class" required>
+            <option value="8th">8th</option>
+            <option value="9th">9th</option>
+            <option value="10th">10th</option>
+            <option value="11th">11th</option>
+            <option value="12th">12th</option>
+          </select>
+            <input type="submit" value="Upload">
+        </form>
+
+        <li>
+            <details>
+                <summary class="notes-collapsible">Class 8</summary>
+                <div class="notes-content">
+                    {% for filename in class8_list %}
+                    <a href='/notes/export/8/{{filename}}'>{{filename}}</a><br> {% endfor %}
+                </div>
+            </details>
+        </li>
+        <li>
+            <details>
+                <summary class="notes-collapsible">Class 9</summary>
+                <div class="notes-content">
+                    {% for filename in class9_list %}
+                    <a href="/notes/export/9/{{filename}}">{{filename}}</a><br> {% endfor %}
+                </div>
+            </details>
+        </li>
+        <li>
+            <details>
+                <summary class="notes-collapsible">Class 10</summary>
+                <div class="notes-content">
+                    {% for filename in class10_list %}
+                    <a href="/notes/export/10/{{filename}}">{{filename}}</a><br> {% endfor %}
+                </div>
+            </details>
+        </li>
+        <li>
+            <details>
+                <summary class="notes-collapsible">Class 11</summary>
+                <div class="notes-content">
+                    {% for filename in class11_list %}
+                    <a href="/notes/export/11/{{filename}}">{{filename}}</a><br> {% endfor %}
+                </div>
+            </details>
+        </li>
+        <li>
+            <details>
+                <summary class="notes-collapsible">Class 12</summary>
+                <div class="notes-content">
+                    {% for filename in class12_list %}
+                    <a href="/notes/export/12/{{filename}}">{{filename}}</a><br> {% endfor %}
+                </div>
+            </details>
+        </li>
+    </ul>
+</div>
+
+{% endblock content %}

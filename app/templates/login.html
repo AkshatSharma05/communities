@@ -1,0 +1,60 @@
+<html>
+<title> Login </title>
+<link rel = "stylesheet" href = "{{ url_for('static',filename='styles/styles.css') }}">
+
+<body>
+<form method="POST" action = "">
+    {{ form.hidden_tag() }}
+    <div class = "login-box">
+        <h1>Login</h1>
+        <div class = "textbox">
+            {% if form.username.errors %}
+            {{ form.username(class = "form-control form-control-lg is-invalid") }}
+                <div class = 'invalid feedback'>
+                    {% for errors in form.username.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.username(placeholder = 'Username') }}
+            {% endif %}
+        </div>
+        <div class = "textbox">
+            {% if form.standard.errors %}
+                <div class = 'invalid feedback'>
+                    {% for errors in form.standard.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.standard }}
+            {% endif %}
+        </div>
+        <div class = "textbox">
+            {% if form.section.errors %}
+                <div class = 'invalid feedback'>
+                    {% for errors in form.section.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.section }}
+            {% endif %}
+        </div>
+        <div class = "textbox">
+            {% if form.password.errors %}
+                <div class = 'invalid feedback'>
+                    {% for errors in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.password(placeholder = 'Password') }}
+            {% endif %}
+        </div>
+        {{ form.submit(value = 'Sign in', class = 'btn') }}
+        <p>Not Registered yet? Create Account <a href = "{{ url_for('signup') }}"> here</a>.</p>
+    </div>
+</form>
+</body>
+</html>

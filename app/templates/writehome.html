@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class = 'blogcontent'>
+    <span>
+        {% for post in posts %}
+        <div class = 'posts'>
+            <div class = "{{ loop.cycle('odd', 'even') }}">
+            <h3>{{ post.title }}</h3>
+            <p>By {{ post.author }} on {{ post.date_posted }}</p>
+            <p>{{ post.content }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </span>
+</div>
+<div class = 'writeButton'>
+    <a href = "">Write...</a>
+</div>
+{% endblock content %}

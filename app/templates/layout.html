@@ -1,0 +1,31 @@
+<html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "{{ url_for('static',filename='styles/homestyles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body>
+
+<input type = 'checkbox' id = 'check' checked>
+
+<div class='titlebox'>
+<label for="check">
+<i class="fa fa-bars" id = 'sidebar_btn'></i>
+</label>
+<h1>Somerville<span>|communities</span></h1>
+</div>
+
+<div class='sidebar'>
+<a href='#'><i class="fa fa-user" aria-hidden="true"></i><span>My Profile</span></a>
+<a href= {{ url_for('notes') }}><i class="fa fa-clipboard" aria-hidden="true"></i><span>Notes</span></a>
+<a href='#'><i class="fa fa-comments" aria-hidden="true"></i><span>Chatrooms</span></a>
+<a href= {{ url_for('write') }} ><i class="fa fa-pencil-square-o" aria-hidden="true"></i><span>Write</span></a>
+<a href='#'><i class="fa fa-lightbulb-o" aria-hidden="true"></i><span>Quiz</span></a>
+<a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i><span>Logout</span></a>
+</div>
+
+{% block content %}
+
+{% endblock %}
+
+</body>
+
+</html>
